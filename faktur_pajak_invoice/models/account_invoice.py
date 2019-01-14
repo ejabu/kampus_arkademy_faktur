@@ -18,7 +18,7 @@ class AccountInvoice(models.Model):
         #     'faktur_id': faktur_doc.id,
         # })
 
-        current_time = fields.Datetime.now(),
+        current_time = fields.Datetime.now()
 
         faktur_doc.write({
             'invoice_id': self.id,
