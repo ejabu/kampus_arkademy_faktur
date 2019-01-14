@@ -15,6 +15,7 @@
         'faktur_pajak_invoice',
     ],
     'data': [
+        'views/faktur_pajak.xml',
         'wizard/faktur_cancel_wizard.xml',
     ],
     'qweb': [

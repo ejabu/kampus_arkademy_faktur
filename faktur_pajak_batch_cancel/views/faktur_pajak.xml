@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="faktur_pajak_inh_form">
+            <field name="name">faktur.pajak.form</field>
+            <field name="model">faktur.pajak</field>
+            <!-- XML ID nya tidak ketemu di sistem, tidak kebaca -->
+            <!-- <field name="inherit_id" ref="faktur_pajak_invoice.faktur_pajak_form"/> -->
+            <field name="inherit_id" ref="faktur_pajak_invoice.faktur_pajak_inherit_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_reserved']" position="after">
+                    <field name="reason" />
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="faktur_pajak_inh_tree">
+            <field name="name">faktur.pajak.tree</field>
+            <field name="model">faktur.pajak</field>
+            <!-- XML ID nya tidak ketemu di sistem, tidak kebaca -->
+            <!-- <field name="inherit_id" ref="faktur_pajak_invoice.faktur_pajak_tree"/> -->
+            <field name="inherit_id" ref="faktur_pajak_invoice.faktur_pajak_inherit_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_reserved']" position="after">
+                    <field name="reason" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -11,4 +11,5 @@ class FakturCancelWizard(models.TransientModel):
         ids_to_change = self._context.get('active_ids')
         active_model = self._context.get('active_model')
         doc_ids = self.env[active_model].browse(ids_to_change)
-        doc_ids.cancel_diri_sendiri()
+        reason = self.name
+        doc_ids.cancel_diri_sendiri(reason)
