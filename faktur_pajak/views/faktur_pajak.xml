@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record  id="faktur_pajak_action" model="ir.actions.act_window">
+            <field name="name">Faktur Pajak</field>
+            <field name="res_model">faktur.pajak</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="faktur_pajak_menu" name="Faktur Pajak" sequence="200"/>
+        <menuitem id="sub_faktur_pajak_menu" parent="faktur_pajak_menu" name="Faktur Pajak" sequence="50" action="faktur_pajak_action" />
+        
+        <!-- Tree view for the menuitem -->
+        <record id="faktur_pajak_tree" model="ir.ui.view">
+            <field name="name">faktur.pajak.tree</field>
+            <field name="model">faktur.pajak</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form view for the menuitem -->
+        <record id="faktur_pajak_form" model="ir.ui.view">
+            <field name="name">faktur.pajak.form</field>
+            <field name="model">faktur.pajak</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!-- <button name="action_cancel" string="Cancel" type="object" /> -->
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

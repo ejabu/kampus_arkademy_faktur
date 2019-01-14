@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="faktur_pajak_inherit_tree">
+            <field name="name">faktur.pajak.tree</field>
+            <field name="model">faktur.pajak</field>
+            <field name="inherit_id" ref="faktur_pajak.faktur_pajak_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="invoice_id" />
+                    <field name="date_reserved" />
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="faktur_pajak_inherit_form">
+            <field name="name">faktur.pajak.form</field>
+            <field name="model">faktur.pajak</field>
+            <field name="inherit_id" ref="faktur_pajak.faktur_pajak_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="invoice_id" />
+                    <field name="date_reserved" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
