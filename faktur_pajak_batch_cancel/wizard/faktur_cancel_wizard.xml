@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="faktur_cancel_wizard" model="ir.ui.view" >
+            <field name="name">faktur.cancel.wizard</field>
+            <field name="model">faktur.cancel.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div style="white-space: pre-line;">
+                        <p><h5>Sistem akan men-update data dari dokumen faktur pajak yang dipilih.</h5>
+                        Fitur ini bisa digunakan untuk keperluan sbb. :
+                        1. Adanya perubahan Alamat PKP dari Perusahaan
+                        2. Adanya perubahan <b>Alamat Pajak</b> dari Customer</p>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" string="Reason" invisible="1"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <footer>
+                        <button type="object" name="process_wizard" string="Process" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window
+            id="action_faktur_cancel_wizard"
+            name="Cancel"
+            res_model="faktur.cancel.wizard"
+            src_model="faktur.pajak"
+            view_mode="form"
+            multi="True"
+            target="new"
+            key2="client_action_multi"
+        />
+    </data>
+</odoo>
