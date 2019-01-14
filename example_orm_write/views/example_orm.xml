@@ -40,7 +40,15 @@
                         </group>
                         <notebook>
                             <page string="One2many">
-                                <field name="name"/>
+                                <field name="line_ids">
+                                    <tree limit="4" editable="bottom">
+                                        <field name="example_id" readonly="1"/>
+                                        <field name="name"/>
+                                        <field name="detail"/>
+                                        <field name="amount" sum="Total"/>
+                                        <field name="currency_id" force_save="1" readonly="1"/>
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                         <div class="o_group">

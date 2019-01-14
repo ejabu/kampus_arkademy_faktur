@@ -12,6 +12,7 @@
     ],
     'data': [
         'views/example_orm.xml',
+        'views/example_orm_line.xml',
     ],
     'qweb': [
     ],
