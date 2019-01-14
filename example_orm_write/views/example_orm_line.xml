@@ -8,8 +8,8 @@
             <field name="view_mode">tree</field>
         </record>
 
-        <menuitem id="example_orm_line_menu" name="Example ORM Line" sequence="200"/>
-        <menuitem id="sub_example_orm_line_menu" parent="example_orm_line_menu" name="Example ORM Line" sequence="50" action="example_orm_line_action" />
+        <menuitem id="sub_example_orm_line_menu" parent="example_orm_menu" 
+            name="Example ORM Line" sequence="20" action="example_orm_line_action" />
         
         <!-- Tree view for the menuitem -->
         <record id="example_orm_line_tree" model="ir.ui.view">

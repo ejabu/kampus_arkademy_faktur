@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="example_orm_main" name="Example ORM" sequence="1"/>
+        <menuitem id="example_orm_menu" parent="example_orm_main" name="Example"/>
+    </data>
+</odoo>

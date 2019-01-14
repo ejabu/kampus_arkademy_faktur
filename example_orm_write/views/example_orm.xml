@@ -8,8 +8,8 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="example_orm_menu" name="Example ORM" sequence="200"/>
-        <menuitem id="sub_example_orm_menu" parent="example_orm_menu" name="Example ORM" sequence="50" action="example_orm_action" />
+        <menuitem id="sub_example_orm_menu" parent="example_orm_menu" 
+            name="Example ORM" sequence="10" action="example_orm_action" />
         
         <!-- Tree view for the menuitem -->
         <record id="example_orm_tree" model="ir.ui.view">
@@ -36,6 +36,7 @@
                                 <field name="name"/>
                             </group>
                             <group>
+                                <field name="records_to_add"/>
                             </group>
                         </group>
                         <notebook>
@@ -44,6 +45,7 @@
                                     <tree limit="4" editable="bottom">
                                         <field name="example_id" readonly="1"/>
                                         <field name="name"/>
+                                        <field name="name_new"/>
                                         <field name="detail"/>
                                         <field name="amount" sum="Total"/>
                                         <field name="currency_id" force_save="1" readonly="1"/>

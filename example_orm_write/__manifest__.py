@@ -11,8 +11,10 @@
     'depends': [
     ],
     'data': [
+        'views/_menu_item.xml',
         'views/example_orm.xml',
         'views/example_orm_line.xml',
+        'views/ir_sequence.xml',
     ],
     'qweb': [
     ],
