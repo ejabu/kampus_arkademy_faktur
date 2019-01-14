@@ -52,6 +52,9 @@
                                     </tree>
                                 </field>
                             </page>
+                            <page string="Bonus">
+                                <img src="/example_orm_write/static/img/logo.png" alt="Arkana"/>
+                            </page>
                         </notebook>
                         <div class="o_group">
                             <div class="o_group_col_6">
@@ -66,22 +69,18 @@
                                             <div class="panel-body">
                                                 <p>kita bisa tetap pakai self.write(), tapi ada syntax khusus <a href="https://www.odoo.com/forum/help-1/question/how-to-insert-value-to-a-one2many-field-in-table-with-create-method-28714" target="_blank">Learn more.</a></p>
                                                 <p style="white-space: pre">
-                    self.write({
-                        'line_ids': [
-                            (0, 0, {
-                                'amount' : 200,
-                                'name' : 'Bapak Yudi',
-                            },
-                            (0, 0, {
-                                'amount' : 200,
-                                'name' : 'Bapak Karto',
-                            },
-                            (0, 0, {
-                                'amount' : 300,
-                                'name' : 'Bapak Sugi',
-                            },
-                        ]
-                    })</p>
+            self.write({
+                'line_ids': [
+                    (0, 0, {
+                        'amount' : 200,
+                        'name' : 'Bapak Karto',
+                    },
+                    (0, 0, {
+                        'amount' : 300,
+                        'name' : 'Bapak Sugi',
+                    },
+                ]
+            })</p>
                                             </div>
                                         </div>
                                     </div>
@@ -94,18 +93,27 @@
                                         <div id="collapseTwo" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <p>Kita bisa loop pada masing-masing record. lalu mengupdate example_id dengan ID tertentu</p>
+                                                <p style="white-space: pre">
+    for line_doc in line_docs:
+        line_doc.example_id = &lt;<b><i>ID Header /Form Tertentu</i></b>&gt;
+                                                </p>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">3. Adakah workaround Delete all records ?</a>
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Adakah workaround Delete all records ?</a>
                                             </h4>
                                         </div>
-                                        <div id="collapseTwo" class="panel-collapse collapse">
+                                        <div id="collapseThree" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <p>Kita bisa loop pada masing-masing record. lalu meng-unlink semua doc tersebut</p>
+                                                <p style="white-space: pre">
+    for line_doc in line_docs:
+        line_doc.unlink()
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -118,12 +126,17 @@
                                     <button name="new_records" string="New One2many Records" type="object" />
                                 </div>
                                 <div class="panel-body">
-                                    <p>Menghilangkan satu baris dengan menggunakan <b>( 3, ID )</b>
+                                    <p>Memutus Koneksi satu baris dengan menggunakan <b>False</b>
                                     </p>
                                     <button name="break_one_record" string="Break one record" type="object" />
                                 </div>
                                 <div class="panel-body">
-                                    <p>Menghilangkan semua baris dengan menggunakan <b>( 5 )</b>
+                                    <p><b>Men-Delete</b> satu baris dengan menggunakan <b>( 3, ID )</b>
+                                    </p>
+                                    <button name="delete_one_record" string="Delete one record" type="object" />
+                                </div>
+                                <div class="panel-body">
+                                    <p>Memutus Koneksi semua record dengan menggunakan <b>False</b>
                                     </p>
                                     <button name="break_all_record" string="Break all record" type="object" />
                                 </div>
@@ -133,9 +146,9 @@
                                     <button name="link_one_record" string="Link One record" type="object" />
                                 </div>
                                 <div class="panel-body">
-                                    <p>Add All existing record dengan loop <b>( 4, ID )</b>
+                                    <p>Add All existing record dengan loop <b>( 4, ID )</b> <p style="color : red">To do !</p>
                                     </p>
-                                    <button name="link_all_record" string="Link All record" type="object" />
+                                    <button name="link_all__nganggur_record" string="Link All 'nganggur' record" type="object" />
                                 </div>
                             </div>
                         </div>

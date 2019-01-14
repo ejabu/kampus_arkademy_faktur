@@ -4,4 +4,4 @@ from odoo.exceptions import UserError, ValidationError
 class ExampleOrm(models.Model):
     _name = 'example.orm'
 
-    name = fields.Char('Name')
+    name = fields.Char('Header Title')
