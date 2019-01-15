@@ -34,6 +34,10 @@
                         <group>
                             <group>
                                 <field name="name"/>
+                                <field name="faktur_id"
+                                    domain="[('invoice_id','=',False)]"
+                                    context="{'default_name': name}"
+                                    />
                             </group>
                             <group>
                                 <field name="records_to_add"/>
@@ -46,7 +50,7 @@
                                         <field name="example_id" readonly="1"/>
                                         <field name="name"/>
                                         <field name="name_new"/>
-                                        <field name="detail"/>
+                                        <field name="detail" attrs="{'invisible':[('parent.records_to_add','=', 4)]}"/>
                                         <field name="amount" sum="Total"/>
                                         <field name="currency_id" force_save="1" readonly="1"/>
                                     </tree>
@@ -75,10 +79,12 @@
                         'amount' : 200,
                         'name' : 'Bapak Karto',
                     },
+                    )
                     (0, 0, {
                         'amount' : 300,
                         'name' : 'Bapak Sugi',
                     },
+                    )
                 ]
             })</p>
                                             </div>

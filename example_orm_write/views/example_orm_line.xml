@@ -5,7 +5,9 @@
             <field name="name">Example ORM Line</field>
             <field name="res_model">example.orm.line</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="domain">[('example_id', '=', False)]</field> -->
+        <field name="context">{'search_default_gak_punya_header': 1}</field>
         </record>
 
         <menuitem id="sub_example_orm_line_menu" parent="example_orm_menu" 
@@ -38,7 +40,8 @@
                     <field name="detail" string="Keterangan"/>
                     <field name="amount"/>
                     <filter string="Gak Punya Header"
-                        name='gak_punya_header' domain="[('example_id', '=', False)]"
+                        name='gak_punya_header' 
+                        domain="[('example_id', '=', False)]"
                         help="Filter semua link yang nganggur"/>
                     <group>
                         <filter string="by Example ID" context="{'group_by':'example_id'}" help="Akan di-grup sesuai Header / Example"/>
