@@ -9,11 +9,12 @@
     'description': '''
     ''',
     'depends': [
-        # 'account', # python
-        # 'sale', # python
     ],
     'data': [
-        # 'views/_menu_item.xml',
+        # sSecurity
+        'security/access_role.xml',
+        'security/ir.model.access.csv',
+
         'views/faktur_pajak.xml',
     ],
     'qweb': [

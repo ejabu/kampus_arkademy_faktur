@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record model="ir.module.category" id="modul_faktur_pajak">
+		<field name="name">Modul Faktur Pajak</field>
+		<field name="description">Faktur Pajak</field>
+		<field name="sequence">10</field>
+	</record>
+
+	<record id="fpj_user" model="res.groups">
+	    <field name="name">Faktur Pajak User</field>
+		<field name="category_id" ref="modul_faktur_pajak"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+	</record>
+
+	<record id="fpj_manager" model="res.groups">
+	    <field name="name">Faktur Pajak Manager</field>
+		<field name="category_id" ref="modul_faktur_pajak"/>
+        <field name="implied_ids" eval="[(4, ref('faktur_pajak.fpj_user'))]"/>
+	</record>
+
+
+</odoo>
