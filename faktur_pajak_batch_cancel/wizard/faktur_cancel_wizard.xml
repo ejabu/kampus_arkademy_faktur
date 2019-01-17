@@ -36,6 +36,7 @@
             multi="True"
             target="new"
             key2="client_action_multi"
+            groups="faktur_pajak.fpj_manager"
         />
     </data>
 </odoo>
