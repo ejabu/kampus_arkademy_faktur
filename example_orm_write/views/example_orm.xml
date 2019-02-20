@@ -46,7 +46,7 @@
                         <notebook>
                             <page string="One2many">
                                 <field name="line_ids">
-                                    <tree limit="4" editable="bottom">
+                                    <tree default_order='name desc' limit="4" editable="bottom">
                                         <field name="example_id" readonly="1"/>
                                         <field name="name"/>
                                         <field name="name_new"/>

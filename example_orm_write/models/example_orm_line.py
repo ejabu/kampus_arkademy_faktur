@@ -3,6 +3,7 @@ from odoo.exceptions import UserError, ValidationError
 
 class ExampleOrmLine(models.Model):
     _name = 'example.orm.line'
+    _order = 'amount desc'
 
     name = fields.Char(string='Struk Pembayaran',
         default=lambda self: self.env['ir.sequence'].next_by_code('example.orm.line.default'))

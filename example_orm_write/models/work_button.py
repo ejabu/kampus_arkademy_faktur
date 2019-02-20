@@ -43,12 +43,16 @@ class ExampleOrm(models.Model):
         if line_docs:
             import ipdb; ipdb.set_trace()
             baris_pertama_doc = self.line_ids[-1]
-            self.line_ids.sorted(lambda x: x.amount)
+
             self.write({
                 'line_ids': [
                     (3, baris_pertama_doc.id)
                     ],
             })
+            # Task !
+            # Kalau mau delete dari amount yang paling kecil
+            orm_line_docs = self.line_ids.sorted(lambda x: -x.amount)
+            # Silahkan dilanjutkan ..
 
     def break_all_record(self):
         line_docs = self.line_ids
