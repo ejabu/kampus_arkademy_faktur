@@ -44,7 +44,7 @@
                         domain="[('example_id', '=', False)]"
                         help="Filter semua link yang nganggur"/>
                     <group>
-                        <filter string="by Example ID" context="{'group_by':'example_id'}" help="Akan di-grup sesuai Header / Example"/>
+                        <filter name="group_by_example_id" string="by Example ID" context="{'group_by':'example_id'}" help="Akan di-grup sesuai Header / Example"/>
                     </group>
                 </search>
             </field>
