@@ -7,10 +7,11 @@ class FakturPajak(models.Model):
     name = fields.Char('Name')
 
     def get_invoices(self):
-        # search_query = []
-        search_query = [('state', '=', 'open')]
-        invoice_docs = self.env['account.invoice'].search(search_query, limit=5)
-        self.view_invoice_ids = invoice_docs
+        for doc in self:
+            # search_query = []
+            search_query = [('state', '=', 'open')]
+            invoice_docs = self.env['account.invoice'].search(search_query, limit=5)
+            doc.view_invoice_ids = invoice_docs
 
     view_invoice_ids = fields.One2many('account.invoice', 'pajak_id', 'View Invoices', compute=get_invoices)
 
