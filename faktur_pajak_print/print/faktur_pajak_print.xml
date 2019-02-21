@@ -86,6 +86,54 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="row text-center mb32">
+                                <table class="table table-condensed" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Name</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Amount</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.get_array()" t-as="array_element">
+                                            <td class="text-right">
+                                                <span t-esc="array_element['name']" />
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="array_element['amount']" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row text-center mb32">
+                                <table class="table table-condensed" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Name</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Amount</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.get_invoices()" t-as="invoice_dokumen">
+                                            <td class="text-right">
+                                                <span t-esc="invoice_dokumen.number" />
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="invoice_dokumen.amount_total" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </t>
                 </t>
