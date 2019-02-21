@@ -18,6 +18,7 @@
             <field name="inherit_id" ref="faktur_pajak.faktur_pajak_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
+                    <!-- <field name="invoice_id" domain="[('number', 'like', '2018')])"/> -->
                     <field name="invoice_id" />
                     <field name="date_reserved" />
                 </xpath>
