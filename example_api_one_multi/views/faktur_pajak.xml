@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="faktur_pajak_form">
+            <field name="name">faktur.pajak.form</field>
+            <field name="model">faktur.pajak</field>
+            <field name="inherit_id" ref="faktur_pajak.faktur_pajak_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="clear_filter" string="Clear Filter" type="object" />
+                    <button name="clear_filter_all" string="Clear Filter All" type="object" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
