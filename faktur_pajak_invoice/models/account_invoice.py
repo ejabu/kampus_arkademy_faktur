@@ -31,3 +31,13 @@ class AccountInvoice(models.Model):
         for invoice_doc in self:
             invoice_doc.get_faktur_pajak()
         return result
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        args = args or []
+        recs = self.browse()
+        if name:
+            recs = self.search([('number', 'ilike', name)] + args, limit=limit)
+        if not recs:
+            recs = self.search([] + args, limit=limit)
+        return recs.name_get()
