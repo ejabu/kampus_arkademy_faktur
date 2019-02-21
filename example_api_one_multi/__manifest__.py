@@ -9,7 +9,8 @@
     'description': '''
     ''',
     'depends': [
-        'faktur_pajak_filter'
+        'faktur_pajak',
+        'faktur_pajak_filter',
     ],
     'data': [
         'views/faktur_pajak.xml',
