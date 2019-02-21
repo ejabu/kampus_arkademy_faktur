@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="pformat_fpajak_hardcopy">
+            <field name="name">Layout Landscape Fpajak</field>
+            <field name="default" eval="False" />
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field> <!-- Hide unnecessary header -->
+        </record>
+        <report
+            id="hardcopy_faktur_pajak"
+            name="faktur_pajak_print.print_fpajak"
+            model="faktur.pajak"
+            string="Hardcopy Faktur Pajak"
+            report_type="qweb-pdf"
+            paperformat="pformat_fpajak_hardcopy"/>
+        />
+        <template id="print_fpajak">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.internal_layout">
+                        <style>
+                            table.description, th, td {
+                                border-collapse: collapse;
+                            }
+                            table.description td {
+                                padding-right: 5px;
+                                padding-left: 5px;
+                            }
+                            .text-center{
+                                text-align: center;
+                            }
+                            .text-right{
+                                text-align: right;
+                            }
+                        </style>
+                        <div class="page">
+                            <div class="row text-center mb32">
+                                <h3>
+                                    Faktur Pajak <span t-esc="doc.name" />
+                                </h3>
+                            </div>
+                            <div class="row text-center mb32">
+                                View Invoice <span style="font-weight:bold" t-esc="doc.view_invoice_ids" />
+                                
+                            </div>
+                            <div class="row text-center mb32">
+                                <table class="table table-condensed" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Name</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Partner</strong>
+                                            </th>
+                                            <th style="font-weight:bold">
+                                                <strong>Amount Total</strong>
+                                            </th>
+                                            <th>
+                                                <strong>State</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.view_invoice_ids" t-as="inv_doc">
+                                            <td class="text-right">
+                                                <span t-esc="inv_doc.number" />
+                                            </td>
+                                            <td class="text-right" style="font-style: italic">
+                                                <span t-esc="inv_doc.partner_id.name" />
+                                            </td>
+                                            <td class="text-right" style="font-weight:bold">
+                                                <span t-esc="inv_doc.amount_total" />
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="inv_doc.state" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
